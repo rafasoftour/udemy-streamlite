@@ -1,7 +1,5 @@
 import streamlit as st
 
-st.set_page_config(layout="wide", page_title="Curso streamlit", page_icon="😊")
-
 st.title("Bienvenido al curso de Streamlit")
 st.header("Soy un Header")
 st.subheader("Soy un SubHeader")

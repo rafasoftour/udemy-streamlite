@@ -1,4 +1,5 @@
 import streamlit as st
+import requests
 st.title("Multimedia")
 st.divider()
 
@@ -21,4 +22,13 @@ st.subheader("Video")
 st.video("https://cdn.pixabay.com/video/2024/12/29/249475_large.mp4")
 
 # Uso de la cache
+st.subheader("Haciendo uso de la cache")
+@st.cache_resource
+def get_video(url):
+    response = requests.get(url)
+    response.raise_for_status()
+    return response.content
 
+video_url = "https://cdn.pixabay.com/video/2024/12/29/249475_large.mp4"
+video_data = get_video(video_url)
+st.video(video_data)
