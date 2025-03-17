@@ -28,3 +28,13 @@ def charts():
         plt.ylabel("Number of cars")
         plt.xticks(rotation=45)
         st.pyplot(plt)
+
+        st.subheader("Pie")
+        plt.figure()
+        car = st.selectbox("Choose a car", sorted(df["car"].unique()))
+        df_filter = df[df["car"] == car]
+        model_counts = df_filter["model"].value_counts()
+        model_counts.plot(kind="pie", autopct="%d%%", startangle= 80, colors=plt.cm.Paired.colors)
+        plt.title(f"Distribution of models for the Brand {car}")
+        plt.ylabel("")
+        st.pyplot(plt)
